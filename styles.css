@@ -86,19 +86,19 @@
 }
 
 .wgt-400 {
-    font-weight: 400;
+    font-weight: var(--weight-400);
 }
 
 .wgt-500 {
-    font-weight: 500;
+    font-weight: var(--weight-500);
 }
 
 .wgt-600 {
-    font-weight: 600;
+    font-weight: var(--weight-600);
 }
 
 .wgt-700 {
-    font-weight: 700;
+    font-weight: var(--weight-700);
 }
 
 .fn-size-16 {
@@ -372,6 +372,39 @@
 .show {
     display: block;
 }
+
+.maven-pro-text-sm {
+    font-style: normal;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: var(--weight-400);
+    font-size: var(--size-18);
+}
+
+.maven-pro-text-lg {
+    font-style: normal;
+    font-family: "Maven Pro", sans-serif;
+    font-weight: var(--weight-700);
+    font-size: var(--size-34);
+}
+
+.lato-text-vsm,
+.lato-weighted-text-vsm,
+.lato-weighted-text-sm {
+    font-style: normal;
+    font-family: "Lato", sans-serif;
+    font-weight: var(--weight-400);
+    font-size: var(--size-18);
+}
+
+.lato-weighted-text-vsm,
+.lato-weighted-text-sm {
+    font-weight: var(--weight-700);
+}
+
+.lato-weighted-text-sm {
+    font-size: var(--size-20);
+}
+
 
 @media only screen and (max-width: 400px) {
 
