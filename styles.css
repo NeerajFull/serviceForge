@@ -17,6 +17,7 @@
 * {
     --orange: #FD7403;
     --blue: #061037;
+    --size-8: 8px;
     --size-16: 16px;
     --size-18: 18px;
     --size-20: 20px;
@@ -246,6 +247,10 @@
     margin-right: var(--size-20);
 }
 
+.gap-8 {
+    gap: var(--size-8);
+}
+
 .gap-16 {
     gap: var(--size-16);
 }
@@ -370,15 +375,15 @@
 
 @media only screen and (max-width: 400px) {
 
-    .m-justify-content-space-between {
+    .sm-justify-content-space-between {
         justify-content: space-between;
     }
 
-    .m-width-350 {
+    .sm-width-350 {
         width: 350px;
     }
 
-    .m-height-450 {
+    .sm-height-450 {
         height: 450px;
     }
 
@@ -387,21 +392,12 @@
         height: 30px;
     }
 
-    .m-hide {
+    .sm-hide {
         display: none;
     }
 
-    .m-show {
+    .sm-show {
         display: block;
-    }
-
-    .m-flex-column {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .m-gap {
-        gap: 8px;
     }
 
     .hamburger i {

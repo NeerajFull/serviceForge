@@ -4,7 +4,7 @@ const hamburger = document.getElementsByClassName("hamburger")[0];
 
 hamburger.addEventListener("click", () => {
     
-    const dropDown = `<div class="container m-flex-column m-gap">
+    const dropDown = `<div class="container flex-column gap-8">
     <a href="#" class="maven-pro-normal wgt-400 fn-size-18">
         Home
     </a>
@@ -34,7 +34,7 @@ hamburger.addEventListener("click", () => {
     </a>
 </div>`
 document.getElementsByClassName("dropdown")[0].innerHTML = dropDown;
-document.getElementsByClassName("dropdown")[0].classList.toggle("m-show");
+document.getElementsByClassName("dropdown")[0].classList.toggle("sm-show");
 
 
 })
