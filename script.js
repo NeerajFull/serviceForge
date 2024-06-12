@@ -19,34 +19,22 @@ leftArrow.addEventListener("click", () => {
     sl--;
 
     if (sl < 0) {
-        sl = slider.length-1;
+        sl = slider.length - 1;
     }
-    
+
     hideOrShow(sl);
 });
 
 rightArrow.addEventListener("click", () => {
     sl++;
-    
+
     if (sl > 3) {
         sl = 0;
     }
     hideOrShow(sl);
 });
 
-
-setInterval(() => {
-    if (sl > 3) {
-        sl = 0;
-    } else if (sl < 0) {
-        sl = slider.length-1;
-    }
-
-    hideOrShow(sl);
-
-    sl++;
-
-}, 5000);
+let intervalId;
 
 function hideOrShow(sl) {
     for (let i = 0; i < slider.length; i++) {
@@ -58,3 +46,31 @@ function hideOrShow(sl) {
     }
 }
 
+const slideShow = document.getElementById("slideShow")
+
+
+let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+
+            intervalId = setInterval(() => {
+                if (sl > 3) {
+                    sl = 0;
+                } else if (sl < 0) {
+                    sl = slider.length - 1;
+                }
+
+                hideOrShow(sl);
+
+                sl++;
+
+            }, 2000);
+        }else{
+            clearInterval(intervalId);
+        }
+    });
+}, {
+    threshold: 0.5
+});
+
+observer.observe(slideShow);
