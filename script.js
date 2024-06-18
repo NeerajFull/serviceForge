@@ -74,3 +74,30 @@ let observer = new IntersectionObserver((entries, observer) => {
 });
 
 observer.observe(slideShow);
+
+
+//--------------------------
+//login popup
+let popup;
+
+function closePopup(mode) {
+    if (mode === "login") {
+        popup = document.getElementById("loginPopup");
+    }
+    else {
+        popup = document.getElementById("signupPopup");
+    }
+
+    popup.classList.add("hide");
+}
+
+function openPopup(mode) {
+    if (mode === "login") {
+        popup = document.getElementById("loginPopup");
+    }
+    else {
+        popup = document.getElementById("signupPopup");
+    }
+
+    popup.classList.remove("hide");
+}

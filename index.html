@@ -16,7 +16,19 @@
 
 <body>
 
-
+    <form class="flex-column gap-20 w-610 bg-color-light-grey pd-40 position-fixed z-index-2 left-23pt hide" id="loginPopup">
+        <span class="wgt-500 fn-size-20 close-icon" onclick="closePopup('login')">X</span>
+        <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto">
+        <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto">
+        <button class="w-300 btn white-color bg-color-orange wgt-700 m-auto">Login</button>
+    </form>
+    <form class="flex-column gap-20 w-610 bg-color-light-grey pd-40 position-fixed z-index-2 left-23pt hide" id="signupPopup">
+        <span class="wgt-500 fn-size-20 close-icon" onclick="closePopup('signup')">X</span>
+        <input type="text" placeholder="Enter name" class="w-300 pd-10 m-auto">
+        <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto">
+        <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto">
+        <button class="w-300 btn white-color bg-color-orange wgt-700 m-auto">Signup</button>
+    </form>
 
     <nav
         class="flex-row justify-content-space-between align-items-last-baseline container sm-justify-content-space-between position-fixed top-0 w-100pt bg-color-grey">
@@ -45,10 +57,10 @@
         </div>
 
         <div class="flex-row gap-48 align-items-baseline sm-hide">
-            <a href="#" class="maven-pro-text-sm">
+            <a href="#" class="maven-pro-text-sm" onclick="openPopup('login')">
                 Log in
             </a>
-            <button class="btn lato-normal wgt-600 fn-size-16 pd-l-40 pd-r-40 bg-color-orange white-color">
+            <button class="btn lato-normal wgt-600 fn-size-16 pd-l-40 pd-r-40 bg-color-orange white-color" onclick="openPopup('signup')">
                 Sign Up
             </button>
         </div>
@@ -123,34 +135,35 @@
         <div class="flex-row align-items-center" id="slideShow">
             <span class="white-color fn-size-20 left-arrow hide sm-show"><i class="fa-solid fa-arrow-left"></i> </span>
 
-        <div class="flex-row justify-content-space-between mr-8 mt-50 flex-wrap-wrap white-color ml-8 gap-48">
-            <div class="card slider">
-                <img src="./images/1st.png" alt="1st">
-                <br>
-                <p class="lato-weighted-text-vsm sm-hide">CONSTRUCTION</p>
-                <p class="lato-text-vsm sm-hide">Ace Handyman</p>
+            <div class="flex-row justify-content-space-between mr-8 mt-50 flex-wrap-wrap white-color ml-8 gap-48">
+                <div class="card slider">
+                    <img src="./images/1st.png" alt="1st">
+                    <br>
+                    <p class="lato-weighted-text-vsm sm-hide">CONSTRUCTION</p>
+                    <p class="lato-text-vsm sm-hide">Ace Handyman</p>
+                </div>
+                <div class="card slider sm-hide">
+                    <img src="./images/2nd.png" alt="2nd">
+                    <br>
+                    <p class="lato-weighted-text-vsm sm-hide">BEAUTY</p>
+                    <p class="lato-text-vsm sm-hide">Bruce Masefield</p>
+                </div>
+                <div class="card slider sm-hide">
+                    <img src="./images/3rd.png" alt="3rd">
+                    <br>
+                    <p class="lato-weighted-text-vsm sm-hide">RESTAURANTS</p>
+                    <p class="lato-text-vsm sm-hide">Baba</p>
+                </div>
+                <div class="card slider sm-hide">
+                    <img src="./images/4th.png" alt="4th">
+                    <br>
+                    <p class="lato-weighted-text-vsm sm-hide">HOMESERVICES</p>
+                    <p class="lato-text-vsm sm-hide">Alfred</p>
+                </div>
             </div>
-            <div class="card slider sm-hide">
-                <img src="./images/2nd.png" alt="2nd">
-                <br>
-                <p class="lato-weighted-text-vsm sm-hide">BEAUTY</p>
-                <p class="lato-text-vsm sm-hide">Bruce Masefield</p>
-            </div>
-            <div class="card slider sm-hide">
-                <img src="./images/3rd.png" alt="3rd">
-                <br>
-                <p class="lato-weighted-text-vsm sm-hide">RESTAURANTS</p>
-                <p class="lato-text-vsm sm-hide">Baba</p>
-            </div>
-            <div class="card slider sm-hide">
-                <img src="./images/4th.png" alt="4th">
-                <br>
-                <p class="lato-weighted-text-vsm sm-hide">HOMESERVICES</p>
-                <p class="lato-text-vsm sm-hide">Alfred</p>
-            </div>
-        </div>
-        
-        <span class="white-color fn-size-20 right-arrow hide sm-show"><i class="fa-solid fa-arrow-right"></i> </span>
+
+            <span class="white-color fn-size-20 right-arrow hide sm-show"><i class="fa-solid fa-arrow-right"></i>
+            </span>
         </div>
         <p class="maven-pro-normal wgt-500 fn-size-36 mt-150 white-color">The best tool you will ever need </p>
         <div class="flex-row flex-wrap-wrap mt-36 gap-16">

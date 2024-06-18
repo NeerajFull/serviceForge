@@ -326,6 +326,9 @@
 .w-100pt{
     width: 100%;
 }
+.w-50pt{
+    width: 50%;
+}
 
 .h-650 {
     height: 650px;
@@ -414,6 +417,17 @@
 .position-fixed {
     position: fixed;
 }
+.position-absolute {
+    position: absolute;
+}
+
+.z-index-2{
+    z-index: 100;
+}
+
+.left-23pt{
+    left: 25%;
+}
 
 .top-0 {
     top: 0;
@@ -423,7 +437,26 @@
     background-color: rgb(229, 223, 223);
 }
 
+.bg-color-light-grey{
+    background-color: rgb(140, 145, 214);
+}
 
+.justify-content-right{
+    justify-content: right;
+}
+
+.close-icon{
+    width: 18px;
+    margin-left: 100%;
+    
+}
+
+.close-icon:hover{
+    cursor: pointer;
+}
+.btn:hover{
+    cursor: pointer;
+}
 @media only screen and (max-width: 400px) {
 
     .sm-justify-content-space-between {
