@@ -230,6 +230,10 @@
     margin-top: 150px;
 }
 
+.mt-106{
+    margin-top: 106px !important;
+}
+
 .mb-40 {
     margin-bottom: var(--size-40);
 }
@@ -319,6 +323,9 @@
 .w-610 {
     width: 610px;
 }
+.w-100pt{
+    width: 100%;
+}
 
 .h-650 {
     height: 650px;
@@ -402,6 +409,18 @@
 
 .lato-weighted-text-sm {
     font-size: var(--size-20);
+}
+
+.position-fixed {
+    position: fixed;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.bg-color-grey{
+    background-color: rgb(229, 223, 223);
 }
 
 
