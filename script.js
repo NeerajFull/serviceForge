@@ -87,7 +87,7 @@ function closePopup(mode) {
     else {
         popup = document.getElementById("signupPopup");
     }
-
+    document.getElementById("mainBody").classList.remove("blurred");
     popup.classList.add("hide");
 }
 
@@ -98,6 +98,6 @@ function openPopup(mode) {
     else {
         popup = document.getElementById("signupPopup");
     }
-
+    document.getElementById("mainBody").classList.add("blurred");
     popup.classList.remove("hide");
 }
