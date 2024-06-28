@@ -101,6 +101,14 @@
     font-weight: var(--weight-700);
 }
 
+.color-red{
+    color: red;
+}
+
+.border-color-red{
+    border-color: red;
+}
+
 .fn-size-16 {
     font-size: var(--size-16);
 }

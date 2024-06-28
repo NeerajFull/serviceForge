@@ -65,7 +65,7 @@ let observer = new IntersectionObserver((entries, observer) => {
                 sl++;
 
             }, 2000);
-        }else{
+        } else {
             clearInterval(intervalId);
         }
     });
@@ -100,4 +100,135 @@ function openPopup(mode) {
     }
     document.getElementById("mainBody").classList.add("blurred");
     popup.classList.remove("hide");
+}
+
+
+
+
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const passwordInput = document.getElementById("password");
+const loginEmailInput = document.getElementById("loginEmail");
+const loginPasswordInput = document.getElementById("loginPassword");
+
+const userInfo = {
+    name: "",
+    email: "",
+    password: ""
+}
+
+function getInput(element) {
+    return function () {
+        const input = element.value;
+        userInfo[element.getAttribute("name")] = input;
+    }
+}
+
+nameInput.onchange = getInput(nameInput);
+emailInput.onchange = getInput(emailInput);
+passwordInput.onchange = getInput(passwordInput);
+loginEmailInput.onchange = getInput(loginEmailInput);
+loginPasswordInput.onchange = getInput(loginPasswordInput);
+
+function showErrorMessage(error) {
+    const errorElement = document.getElementById("loginError") || document.getElementById("error");
+
+    errorElement.innerText = error;
+
+    setTimeout(() => {
+        errorElement.innerText = ``
+    }, 3000)
+}
+
+
+
+const handleLogin = (e) => {
+    e.preventDefault();
+
+    //missing fields check
+    for (let prop in userInfo) {
+        if (prop !== "name") {
+            if (!(userInfo[prop]).trim()) {
+                showErrorMessage(`Please fill all the fields.`);
+                return;
+            }
+        }
+    }
+
+    //checking if the user already exists
+    const user = localStorage.getItem("userInfo");
+    if (user) {
+        const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailReg.test(userInfo.email.trim())) {
+            // user is there, now check email
+            if (userInfo.email.trim().toLowerCase() === (JSON.parse(user)).email) {
+                if (userInfo.password === (JSON.parse(user)).password) {
+                    closePopup("login");
+                } else {
+                    showErrorMessage("Incorrect password");
+                    return;
+                }
+            } else {
+                showErrorMessage("User doesn't exists");
+                return;
+            }
+        } else {
+            showErrorMessage(`Incorrect email format`)
+            return;
+        }
+
+    } else {
+        showErrorMessage("User doesn't exist");
+        return;
+    }
+
+}
+
+const handleSignup = (e) => {
+    e.preventDefault();
+
+    //missing fields check
+    for (let prop in userInfo) {
+        if (!(userInfo[prop]).trim()) {
+            showErrorMessage(`Please fill all the fields.`);
+            return;
+        }
+    }
+
+    //name and password are of more than 2 and 4 chars respectively
+    if (userInfo.name.trim().length > 2) {
+        if (userInfo.password.length > 4) {
+            //checking if the user already exists
+            const user = localStorage.getItem("userInfo");
+            if (user) {
+                const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (emailReg.test(userInfo.email.trim())) {
+                    // user is there, now check email
+                    if (userInfo.email.trim().toLowerCase() === (JSON.parse(user)).email) {
+                        showErrorMessage("User already exists");
+                        return;
+                    } else {
+                        //create user
+                        localStorage.setItem("userInfo", JSON.stringify({ name: userInfo.name.trim(), email: userInfo.email.trim().toLowerCase(), password: userInfo.password }));
+                        closePopup("signup");
+                    }
+                } else {
+                    showErrorMessage(`Email is in incorrect format`)
+                    return;
+                }
+
+            } else {
+                //create user
+                localStorage.setItem("userInfo", JSON.stringify({ name: userInfo.name.trim(), email: userInfo.email.trim().toLowerCase(), password: userInfo.password }));
+                closePopup("signup");
+            }
+        } else {
+            showErrorMessage(`Password should be more than 4 chars.`)
+            return;
+        }
+    } else {
+        showErrorMessage(`Name should be more than 2 chars.`)
+        return;
+    }
+
 }
