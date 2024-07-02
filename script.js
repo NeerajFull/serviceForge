@@ -130,8 +130,13 @@ passwordInput.onchange = getInput(passwordInput);
 loginEmailInput.onchange = getInput(loginEmailInput);
 loginPasswordInput.onchange = getInput(loginPasswordInput);
 
-function showErrorMessage(error) {
-    const errorElement = document.getElementById("loginError") || document.getElementById("error");
+function showErrorMessage(error, popup) {
+    let errorElement;
+    if (popup === "login") {
+        errorElement = document.getElementById("loginError");
+    } else {
+        errorElement = document.getElementById("error")
+    }
 
     errorElement.innerText = error;
 
@@ -149,7 +154,7 @@ const handleLogin = (e) => {
     for (let prop in userInfo) {
         if (prop !== "name") {
             if (!(userInfo[prop]).trim()) {
-                showErrorMessage(`Please fill all the fields.`);
+                showErrorMessage(`Please fill all the fields.`, "login");
                 return;
             }
         }
@@ -165,20 +170,20 @@ const handleLogin = (e) => {
                 if (userInfo.password === (JSON.parse(user)).password) {
                     closePopup("login");
                 } else {
-                    showErrorMessage("Incorrect password");
+                    showErrorMessage("Incorrect password", "login");
                     return;
                 }
             } else {
-                showErrorMessage("User doesn't exists");
+                showErrorMessage("User doesn't exists", "login");
                 return;
             }
         } else {
-            showErrorMessage(`Incorrect email format`)
+            showErrorMessage(`Incorrect email format`, "login")
             return;
         }
 
     } else {
-        showErrorMessage("User doesn't exist");
+        showErrorMessage("User doesn't exist", "login");
         return;
     }
 
@@ -190,7 +195,7 @@ const handleSignup = (e) => {
     //missing fields check
     for (let prop in userInfo) {
         if (!(userInfo[prop]).trim()) {
-            showErrorMessage(`Please fill all the fields.`);
+            showErrorMessage(`Please fill all the fields.`, "signup");
             return;
         }
     }
@@ -205,7 +210,7 @@ const handleSignup = (e) => {
                 if (emailReg.test(userInfo.email.trim())) {
                     // user is there, now check email
                     if (userInfo.email.trim().toLowerCase() === (JSON.parse(user)).email) {
-                        showErrorMessage("User already exists");
+                        showErrorMessage("User already exists", "signup");
                         return;
                     } else {
                         //create user
@@ -213,7 +218,7 @@ const handleSignup = (e) => {
                         closePopup("signup");
                     }
                 } else {
-                    showErrorMessage(`Email is in incorrect format`)
+                    showErrorMessage(`Email is in incorrect format`, "signup")
                     return;
                 }
 
@@ -223,11 +228,11 @@ const handleSignup = (e) => {
                 closePopup("signup");
             }
         } else {
-            showErrorMessage(`Password should be more than 4 chars.`)
+            showErrorMessage(`Password should be more than 4 chars.`, "signup")
             return;
         }
     } else {
-        showErrorMessage(`Name should be more than 2 chars.`)
+        showErrorMessage(`Name should be more than 2 chars.`, "signup")
         return;
     }
 
