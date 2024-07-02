@@ -218,6 +218,9 @@
     margin: 0;
 }
 
+.mt-10{
+    margin-top: 10px;
+}
 .mt-40 {
     margin-top: var(--size-40);
 }
@@ -431,6 +434,10 @@
 .position-absolute {
     position: absolute;
 }
+.position-relative {
+    position: relative;
+}
+
 
 .z-index-100 {
     z-index: 100;
