@@ -205,9 +205,11 @@ const handleLogin = (e) => {
     }
 
     // user is there, now check email
-    if (compareInputs(userInfo.emailtoLowerCase(), user.email)) {
+    if (compareInputs(userInfo.email.toLowerCase(), user.email)) {
         if (compareInputs(userInfo.password, user.password)) {
             closePopup("login");
+            document.getElementById("login-signup-btns").innerHTML ="<h4>🤷🏻‍♂️User</h4>";
+            
         } else {
             showErrorMessage("Incorrect password", "login");
             return;

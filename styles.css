@@ -492,6 +492,11 @@
     overflow: hidden;
 }
 
+input::placeholder {
+    font-weight: 400;
+  }
+
+  
 @media only screen and (max-width: 400px) {
 
     .sm-justify-content-space-between {

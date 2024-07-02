@@ -43,7 +43,7 @@
                 </a>
             </div>
 
-            <div class="flex-row gap-48 align-items-baseline sm-hide">
+            <div class="flex-row gap-48 align-items-baseline sm-hide" id="login-signup-btns">
                 <a href="#" class="maven-pro-text-sm" onclick="openPopup('login')">
                     Log in
                 </a>
@@ -244,8 +244,8 @@
             <span class="wgt-500 fn-size-20 close-icon" onclick="closePopup('login')">X</span>
             <h1 class="m-auto">Login</h1>
             <p class="fn-size-16 color-red m-auto" id="loginError"></p>
-            <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto" id="loginEmail" name="email">
-            <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto" id="loginPassword"
+            <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto wgt-600" id="loginEmail" name="email">
+            <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto wgt-600" id="loginPassword"
                 name="password">
             <button class="w-300 btn white-color bg-color-orange wgt-700 m-auto"
                 onclick="handleLogin(event)">Login</button>
@@ -254,9 +254,9 @@
             <span class="wgt-500 fn-size-20 close-icon" onclick="closePopup('signup')">X</span>
             <h1 class="m-auto">Sign up</h1>
             <p class="fn-size-16 color-red m-auto" id="error"></p>
-            <input type="text" placeholder="Enter name" class="w-300 pd-10 m-auto" id="name" name="name">
-            <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto" id="email" name="email">
-            <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto" id="password"
+            <input type="text" placeholder="Enter name" class="w-300 pd-10 m-auto wgt-600" id="name" name="name">
+            <input type="email" placeholder="Enter email" class="w-300 pd-10 m-auto wgt-600" id="email" name="email">
+            <input type="password" placeholder="Enter password" class="w-300 pd-10 m-auto wgt-600" id="password"
                 name="password">
             <button class="w-300 btn white-color bg-color-orange wgt-700 m-auto"
                 onclick="handleSignup(event)">Signup</button>
